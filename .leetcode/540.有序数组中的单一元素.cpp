@@ -14,19 +14,24 @@ public:
         if(nums[r]!=nums[r-1])return nums[r];
         while(l<r){
             int mid=l+(r-l)/2;
-            if(nums[mid]==nums[mid-1]){
-                if(mid%2==0){
-                    r=mid;
-                }else
-                    l=mid+1;
-            }else if(nums[mid]==nums[mid+1]){
-                if(mid%2==0){
-                    l=mid+1;
-                }else
-                    r=mid;
+            if(nums[mid]==nums[mid^1]){
+                l=mid+1;
             }else{
-                return nums[mid];
+                r=mid;
             }
+            // if(nums[mid]==nums[mid-1]){
+            //     if(mid%2==0){
+            //         r=mid;
+            //     }else
+            //         l=mid+1;
+            // }else if(nums[mid]==nums[mid+1]){
+            //     if(mid%2==0){
+            //         l=mid+1;
+            //     }else
+            //         r=mid;
+            // }else{
+            //     return nums[mid];
+            // }
         }
         return nums[l];
     }
