@@ -23,11 +23,10 @@ public:
     while(!q.empty()){
         step++;
         int n=q.size();
-        string cur=move(q.front());
-        q.pop();
-        string nxt=cur;
         for(int i=0;i<n;i++){// every string
-
+            string cur=move(q.front());
+            q.pop();
+            string nxt=cur;
             for(int j=0;j<len;j++){// 
                 char origin=nxt[j];
                 for(char ch='a';ch<='z';ch++){
@@ -72,4 +71,5 @@ public:
 
 };
 // @lc code=end
+
 
