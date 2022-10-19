@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=104 lang=cpp
+ * @lc app=leetcode.cn id=110 lang=cpp
  *
- * [104] 二叉树的最大深度
+ * [110] 平衡二叉树
  */
 
 // @lc code=start
@@ -18,10 +18,16 @@
  */
 class Solution {
 public:
-    int maxDepth(TreeNode* root) {
-        if(root==nullptr){return 0;}
-        return 1+max(maxDepth(root->left),maxDepth(root->right));
-
+    bool isBalanced(TreeNode* root) {
+        return f(root)!=-1;
+    }
+    int f(TreeNode* p){
+        if(!p){return 0;}
+        int l=f(p->left),r=f(p->right);
+        if(l==-1||r==-1||abs(r-l)>1){
+            return -1;
+        }
+        return 1+max(l,r);
     }
 };
 // @lc code=end
