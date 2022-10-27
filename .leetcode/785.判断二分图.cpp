@@ -8,6 +8,15 @@
 class Solution {
 public:
     bool isBipartite(vector<vector<int>>& graph) {
+        queue<int>q;
+        int n=graph.size();
+        vector<int>col(n);
+        q.push(graph[0][0]);
+        col[graph[0][0]]=1;
+        while(!q.empty()){
+            int cur=q.front();
+            
+        }
         
 
     }
