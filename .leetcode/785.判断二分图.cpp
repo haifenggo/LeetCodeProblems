@@ -11,13 +11,28 @@ public:
         queue<int>q;
         int n=graph.size();
         vector<int>col(n);
-        q.push(graph[0][0]);
-        col[graph[0][0]]=1;
-        while(!q.empty()){
-            int cur=q.front();
-            
+        for(int i=0;i<n;i++){
+            if(!col[i]){
+                q.push(i);
+                col[i]=1;
+                
+            }
+            while(!q.empty()){
+                int cur=q.front();
+                q.pop();
+                for(int& to:graph[cur]){
+                    if(!col[to]){
+                        q.push(to);
+                        col[to]=col[cur]==1?2:1;
+                    }
+                    else if(col[to]==col[cur])return false;
+                    
+
+                }
+
+            }
         }
-        
+        return true;
 
     }
 };
